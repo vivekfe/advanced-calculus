@@ -1,0 +1,320 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Quiz\ 3} % Assignment title
+\newcommand{\hmwkDueDate}{July 17,\ 2014} % Due date
+\newcommand{\hmwkClass}{Advanced Calculus with FE Application} % Course/class
+\newcommand{\hmwkClassTime}{} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Advisor: Dan Stefanica} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Weiyi Chen} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        Since the covariance of $Z_1$ and $Z_2$ is $0.3$, then
+        \begin{equation}
+            \begin{split}
+                X &= 3Z_1 - Z_2 \\
+                &= (3\mu_1 - \mu_2) + \sqrt{(3\sigma_1)^2 + \sigma_2^2 - 2cov(3Z_1, Z_2)}Z \\
+                &= (3\times0-0) + \sqrt{(3^2+1^2-6\times0.3)} \\
+                &= \sqrt{8.2}Z
+            \end{split}
+        \end{equation}
+        Therefore the mean and the variance of $X$ is
+        \begin{equation}
+             \begin{split}
+                E[X] &= 0 \\
+                var[X] &= 8.2
+             \end{split}
+        \end{equation} 
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        If $Z_1$ and $Z_2$ are independent, then
+        \begin{equation}
+            cov(Z_1, Z_2) = 0
+        \end{equation}
+        Using the similar process in part (i), we will have 
+        \begin{equation}
+            X = \sqrt{10}Z
+        \end{equation}
+        Therefore the probability density function of $X$ is
+        \begin{equation}
+            \begin{split}
+                f_X(x) &= \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\
+                &= \frac{1}{\sqrt{20\pi}} e^{-\frac{x^2}{20}}
+            \end{split}
+        \end{equation}
+        where $\mu = 0, \sigma = \sqrt{10}$.
+    \end{homeworkSection}
+\end{homeworkProblem}
+\newpage
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    The probability that $X$ is greater than 2 is
+    \begin{equation}
+        \begin{split}
+            Pr(X>2) &= Pr(3+Z>2) \\
+            &= Pr(Z>-1) \\
+            &= Pr(Z<1) \\
+            &= N(1) \\
+            &= 0.8413
+        \end{split}
+    \end{equation}
+    where $N(1) = 0.8413$ is given and $N(t)$ is the cumulative density of the standard normal variable.
+\end{homeworkProblem}
+\newpage
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 3
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{Quiz's formula for CoN put}
+        In the quiz, the value of cash-or-nothing put is defined as
+        \begin{equation}
+            P_{CoN} = Be^{-qT}N(-d_1)
+        \end{equation}
+        Delta of the cash-or-nothing put is 
+        \begin{equation}
+            \begin{split}
+                \Delta(P_{CoN}) &= \frac{\partial P_{CoN}}{\partial S} \\
+                &= Be^{-qT} N'(-d_1) (-\frac{\partial d_1}{\partial S}) \\
+                &= Be^{-qT} (\frac{1}{\sqrt{2\pi}}e^{-d_1^2/2}) (-\frac{1}{\sigma\sqrt{T}} \frac{K}{S} \frac{1}{K}) \\
+                &= -\frac{Be^{-qT-d_1^2/2}}{\sigma\sqrt{2\pi T}S}
+            \end{split}
+        \end{equation}
+        where 
+        \begin{equation}
+            d_1 = \frac{\ln(\frac{S}{K}) + (r-q+\frac{\sigma^2}{2})T}{\sigma\sqrt{T}}
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{Correct formula for CoN put}
+        However, TA pointed out in the forum saying the value of cash-or-nothing put should be
+        \begin{equation}
+            P_{CoN} = Be^{-rT}N(-d_2)
+        \end{equation}
+        Then in similar way, delta of the put is
+        \begin{equation}
+            \Delta(P_{CoN}) = -\frac{Be^{-rT-d_2^2/2}}{\sigma\sqrt{2\pi T}S}
+        \end{equation}
+        where
+        \begin{equation}
+            d_2 = \frac{\ln(\frac{S}{K}) + (r-q-\frac{\sigma^2}{2})T}{\sigma\sqrt{T}}
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+\newpage
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 4
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Using the Black-Scholes formula with input 
+    \begin{equation}
+        \begin{split}
+            S_1 &= K = 100 \\
+            T &= 1/2 \\
+            \sigma &= 0.3 \\
+            r &= 0.05 \\
+            q &= 0 
+        \end{split}
+    \end{equation}
+    we find that the value of one put options is
+    \begin{equation}
+        P_1 = 7.16586783128
+    \end{equation}
+    Therefore, $\$7,165.86143674$ must be paid for 1000 puts.
+    \begin{homeworkSection}{(i)}
+        The Delta-hedging position for long 1000 puts is short
+        \begin{equation}
+            1000 \Delta(P) = 1000(-e^{-qT}N(-d_1)) = -411.41
+        \end{equation}
+        units of the underlying. Therefore, $411$ units of the underlying must be longed. I will have to borrow \$41,100 to buy the underlying.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        The new spot price and muturity of the option are 
+        \begin{equation}
+            S_2 = 102, T_2 = 125/252
+        \end{equation}
+        since there are 252 trading days in one year. The value of the put option is
+        \begin{equation}
+            P_2 = 6.35543075983
+        \end{equation}
+        and the value of the portfolio is 
+        \begin{equation}
+            1000P_2 + 411S_2 - 411S_1e^{\frac{r}{252}} = 7169.27518887
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(iii)}
+        If the long put position is not Delta-hedged, the loss incurred due to the increase in the spot price of the underlying asset is 
+        \begin{equation}
+            1000(P_2 - P_1) = -\$810.43707145
+        \end{equation}
+        For the Delta-hedged portfolio, the loss incurred is 
+        \begin{equation}
+            (1000P_2+411S_2-411S_1e^{\frac{r}{252}}) - (1000P_1+411S_1-411S_1) = \$3.40735758799
+        \end{equation}
+        As expected, this loss is much smaller than the loss incurred if the options positions is not hedged.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+\end{document}

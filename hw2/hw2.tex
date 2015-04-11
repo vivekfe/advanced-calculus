@@ -1,0 +1,1047 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Hw2} % Assignment title
+\newcommand{\hmwkDueDate}{July 28,\ 2014} % Due date
+\newcommand{\hmwkClass}{Advanced Calculus with FE application} % Course/class
+\newcommand{\hmwkClassTime}{6:00pm} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Instructor: Dan} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Weiyi Chen} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        We know the prices of put options with three different strikes, i.e.,
+        \begin{equation}
+            P(50) = 10, P(60) = 20, P(80) = 30
+        \end{equation}
+        where $P(K)$ denotes the value of a put option with strike $K$. \\
+        In the plane $(K,P(K))$, these option values correspond to the points (50,10), (60,20), and (80,30). The first and third point are on the line $P(K)= \frac{2}{3}K - 70/3$, but the second point is above this line. This contradicts the fact that put options are strictly convex functions of strike price, and creates an arbitrage opportunity.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        The arbitrage comes from the fact that the put with strike 20 is overpriced. Using a ”buy low, sell high” strategy, we could buy (i.e., go long) 4 put options with strike 50, buy (i.e., go long) 2 put option with strike 80, and sell (i.e., go short) 6 put option with strike 60. We set up the following portfolio as $(4, -6, 2)$ (Actually it can be set up as $(2,-3,1)$, but according to TA's requirement, my answer must include 3, 4, or 5 options with strike 50, then it should be 4):
+        \begin{itemize}
+            \item long 4 puts with strike 50;
+            \item long 2 put with strike 80;
+            \item short 6 puts with strike 60;
+        \end{itemize}
+        This portfolio is set up with \$10 profits, since the cash flow generated by them is:
+        \begin{equation}
+            6 \times 20 - 4 \times 10 - 2 \times 30 = 20
+        \end{equation}
+        At the maturity T of the options, the value of the portfolio is
+        \begin{equation}
+            \begin{split}
+                V(T) = 4\max(50-S(T),0) + 2\max(80-S(T),0) - 6\max(60-S(T),0)
+            \end{split}
+        \end{equation}
+        Note that $V(T)$ is nonnegative for any value $S(T)$ of the underlying asset:
+        \begin{itemize}
+            \item If $S(T) \ge 80$, then both put options expire worthless, and $V(T) = 0$.
+            \item If $60 \le S(T) < 80$, then $V(T) = 160 - 2S(T) > 0$.
+            \item If $50 \le S(T) < 60$, then $V(T) = 4S(T) - 200 > 0$.
+            \item If $S(T) < 50$, then $V(T) = 0$.
+        \end{itemize}
+        In other words, we took advantage of the existing arbitrage opportunity by setting up, at \$20 benefit, a portfolio with nonnegative payoff at T regardless of the price S(T) of the underlying asset, and with a strictly positive payoff if $50 < S(T) < 80$.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Yes there is an arbitrage opportunity, because
+    \begin{equation}
+        C_{ask} - P_{bid} < S_{bid}e^{-qT} - Ke^{-r_{bid}T}
+    \end{equation}
+    This is to long 1 unit of the call, short 1 unit of the put, short $e^{-qT}$ shares of the underlying asset. The present value of this portfolio can be verified as constant value $-Ke^{-rT}$, which is greater than the cost $C_{ask} - P_{bid} - S_{bid}e^{-qT}$ to construct this portfolio. So there is a present value of the arbitrage profit as
+    \begin{equation}
+         S_{bid}e^{-qT} - Ke^{-r_{bid}T} - (C_{ask} - P_{bid}) = 0.16777
+    \end{equation} 
+    The forward value of the arbitrage profit is
+    \begin{equation}
+        e^{r_{bid}T} (S_{bid}e^{-qT} - Ke^{-r_{bid}T} - (C_{ask} - P_{bid})) = 0.16861
+    \end{equation}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 3
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        When $S \to 0$, then
+        \begin{equation}
+            d_1 = \frac{\ln(S/K) + (r-q+\frac{\sigma^2}{2})T}{\sigma{\sqrt{T}}} \to -\infty
+        \end{equation}
+        Therefore $e^{-d_1^2/2} \to 0$ and
+        \begin{equation}
+            vega(S) = Se^{-qT}\sqrt{T}\frac{1}{\sqrt{2\pi}}e^{-d_1^2/2} \to 0
+        \end{equation}
+        When $S \to \infty$, then $d_1 \to \infty$ and $e^{-d_1^2/2} \to 0$, but if we expand the expression of $e^{d_1^2/2}$,
+        \begin{equation}
+            \begin{split}
+                e^{d_1^2/2} &= \exp(\frac{\ln^2(S/K) + 2(r-q+\frac{\sigma^2}{2})T \ln(S/K) + (r-q+\frac{\sigma^2}{2})^2T^2}{2\sigma^2T}) \\
+                &= \exp(\frac{\ln^2(S/K)}{2\sigma^2T}) \exp(\frac{(r-q+\frac{\sigma^2}{2}) \ln(S/K)}{\sigma^2}) \exp(\frac{(r-q+\frac{\sigma^2}{2})^2T}{2\sigma^2}) \\
+                &= (S/K)^{\frac{\ln(S/K)}{2\sigma^2T}} (S/K)^{\frac{r-q+\frac{\sigma^2}{2}}{\sigma^2}} \exp(\frac{(r-q+\frac{\sigma^2}{2})^2T}{2\sigma^2})
+            \end{split}
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            \begin{split}
+                vega(S) &= c_1 \frac{S}{e^{d_1^2/2}} \\
+                &= c_2 \frac{S}{(S/K)^{\frac{\ln(S/K)}{2\sigma^2T}} S^{\frac{r-q+\frac{\sigma^2}{2}}{\sigma^2}}} \\
+                &= c_3 \frac{K^{\frac{\ln(S)}{2\sigma^2T}} S^{-\frac{r-q-\frac{\sigma^2}{2}}{\sigma^2}}}{S^{\frac{\ln(S/K)}{2\sigma^2T}}} \\
+                &= c_3 \frac{K^{\frac{\log_K(S)}{2\log_K(e)\sigma^2T}} S^{-\frac{r-q-\frac{\sigma^2}{2}}{\sigma^2}}}{S^{\frac{\ln(S/K)}{2\sigma^2T}}} \\
+                &= c_3 \frac{S^{\frac{1}{2\log_K(e)\sigma^2T}-\frac{r-q-\frac{\sigma^2}{2}}{\sigma^2}}}{S^{\frac{\ln(S/K)}{2\sigma^2T}}} \\
+                &= c_3 \frac{S^{\frac{1}{2\log_K(e)\sigma^2T}-\frac{r-q-\frac{\sigma^2}{2}}{\sigma^2} + \frac{\ln(K)}{2\sigma^2T}} }{S^{\frac{\ln(S)}{2\sigma^2T}}} \\
+                &= c_3 \frac{S^{c_4}}{S^{c_5\ln(S)}}
+            \end{split}
+        \end{equation}
+        where all $c_i$'s are different constants and $c_5 = 1 / (2\sigma^2T)>0$. \\
+        As $S^{c_5ln(S)}$ grows quicker than $S^{c_4}$ for $S \to \infty$, therefore
+        \begin{equation}
+            \lim_{S\to\infty} = c_3 \frac{S^{c_4}}{S^{c_5\ln(S)}} = 0
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        We can easily observe that $vaga(C) > 0$ when $S>0$. Additionally with the conclusion of part(i), we can conclude that the function $vega(S)$ of the spot price $S$ increases instantly after $S = 0^+$ and decreases instantly before $S \to \infty$. \\
+        What we need to further prove is just, there is only one extremum, let's say at $S^*$, between $0$ and $+\infty$, then we can conclude the function $vega(S)$ can only increase once between $0$ and $S^*$  and then decrease between $S^*$ and $+\infty$. \\
+        Now we consider the first order derivative of $vega(S)$,
+        \begin{equation}
+            \begin{split}
+                vega'(S) &= c_1(Se^{-d_1^2/2})' \\
+                &= c_1(e^{-d_1^2/2} + c_2e^{-d_1^2/2}(-d_1)) \\
+                &= c_1e^{-d_1^2/2}(1-c_2d_1) 
+            \end{split}
+        \end{equation}
+        where $c_1 = e^{-qT}\sqrt{T} \frac{1}{\sqrt{2\pi}}$ and $c_2 = \frac{1}{\sigma\sqrt{T}}$. \\
+        Let $vega'(S) = 0$, we have the only solution as $d_1^* = 1 / c_2 = \sigma\sqrt{T}$. Since
+        \begin{equation}
+            d_1 = \frac{\ln(S/K) + (r-q+\frac{\sigma^2}{2})T}{\sigma{\sqrt{T}}}
+        \end{equation}
+        is a strictly increasing function of S, therefore it is a bijection, every $d_1$ is paired with exactly one $S$, which implies there exists only one solution $S^*$ such that $vega'(S) = 0$. We are able to derive the goal that $vega(S)$ is first increasing and then decreasing.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(iii)}
+        The spot price $S^*$ described in part(ii) is exactly corresponding to the maximum value of $vega(C)$, where
+        \begin{equation}
+            d_1^* = \frac{\ln(S^*/K) + (r-q+\frac{\sigma^2}{2})T}{\sigma{\sqrt{T}}} = \sigma\sqrt{T}
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            S^* = K\exp[(-r+q+\frac{\sigma^2}{2})T]
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 4
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Python code to derive the strike,
+    \begin{lstlisting}
+from mibian import *
+from scipy.optimize import newton
+
+def function(strike):
+    spotPrice = 30.
+    volatility = 30.
+    dividendsYield = 0.01*spotPrice
+    riskFreeRate = 2.5
+    maturity = 3./12 * 365
+    option = Me([spotPrice, strike, riskFreeRate, dividendsYield, maturity], volatility=volatility)
+    return option.callDelta - 0.5
+
+print newton(function, 30.)
+    \end{lstlisting}
+    The generated values from Newton's method is 
+    \begin{lstlisting}
+strike: 30.439064505
+    \end{lstlisting}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 5
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        Substitute $F$ in the given Black-Scholes formulas with $Se^{(r-q)T}$,
+        \begin{equation}
+            \begin{split}
+                C(S,t) &= Ke^{-rT}(\frac{Se^{(r-q)T}}{K}N(d_1) - N(d_2)) = Se^{-qT}N(d_1) - Ke^{-rT}N(d_2) \\
+                P(S,t) &= Ke^{-rT}(N(-d_2) - \frac{Se^{(r-q)T}}{K}N(-d_1)) = Ke^{-rT}N(-d_2) - Se^{-qT}N(-d_1)
+            \end{split}
+        \end{equation}
+        where
+        \begin{equation}
+            \begin{split}
+                d_1 &= \frac{\ln(Se^{(r-q)T}/K)}{\sigma\sqrt{T}} + \frac{\sigma\sqrt{T}}{2} = \frac{\ln(S/K) + (r-q)T}{\sigma\sqrt{T}} + \frac{\sigma\sqrt{T}}{2} = \frac{\ln(S/K) + (r-q+\sigma^2/2)T}{\sigma\sqrt{T}} \\
+                d_2 &= \frac{\ln(Se^{(r-q)T}/K)}{\sigma\sqrt{T}} - \frac{\sigma\sqrt{T}}{2} = \frac{\ln(S/K) + (r-q)T}{\sigma\sqrt{T}} - \frac{\sigma\sqrt{T}}{2} = \frac{\ln(S/K) + (r-q-\sigma^2/2)T}{\sigma\sqrt{T}}
+            \end{split}
+        \end{equation}
+        which are exactly the same expression as the standard expression of Black-Scholes formulas.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        Since an at the money forward option is struck at the forward price, i.e., $K = F$, substitute $F$ with $K$, we have
+        \begin{equation}
+            \begin{split}
+                C(S,t) &= Ke^{-rT}(N(d_1) - N(d_2)) \\
+                P(S,t) &= Ke^{-rT}(N(-d_2) - N(-d_1))
+            \end{split}
+        \end{equation}
+        As we know $N(-x) = 1 - N(x)$,
+        \begin{equation}
+            \begin{split}
+                P(S,t) &= Ke^{-rT}(N(-d_2) - N(-d_1)) \\
+                &= Ke^{-rT}[(1-N(d_2)) - (1-N(d_1))] \\
+                &= Ke^{-rT}(N(d_1) - N(d_2)) \\
+                &= C(S,t)
+            \end{split}
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(iii)}
+        For the at money forward call and put options, $K=F$ and with the given condition $r=0$, we have
+        \begin{equation}
+            C = P = K(N(d_1) - N(d_2)) = K(2N(\frac{\sigma\sqrt{T}}{2})-1)
+        \end{equation}
+        where 
+        \begin{equation}
+            d_1 = \frac{\sigma\sqrt{T}}{2}, d_2 = -\frac{\sigma\sqrt{T}}{2} = -d_1
+        \end{equation}
+    \end{homeworkSection}
+    We approximate the term $N(\frac{\sigma\sqrt{T}}{2})$ using a Taylor approximation around 0,
+    \begin{equation}
+        N(x) = N(0) + xN'(0) + \frac{x^2}{2} N"(0) + O(x^3)
+    \end{equation}
+    as $x\to0$. Recall that
+    \begin{equation}
+        N(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{t}e^{-\frac{y^2}{2}}dy
+    \end{equation}
+    It is easy to see that $N(0) = 1/2$. Further we obtain that $N'(t) = \frac{1}{\sqrt{2\pi}}e^{-t^2/2}$ and $N"(t) = -\frac{1}{\sqrt{2\pi}} te^{-t^2/2}$. Thus, $N'(0)=\frac{1}{\sqrt{2\pi}}, N"(0)=0$, and the Taylor expansion around the point 0 becomes
+    \begin{equation}
+        N(x) = \frac{1}{2} + \frac{x}{\sqrt{2\pi}} + O(x^3) \approx \frac{1}{2} + \frac{x}{\sqrt{2\pi}}
+    \end{equation} 
+    Thus,
+    \begin{equation}
+        N(\frac{\sigma\sqrt{T}}{2}) = \frac{1}{2} + \frac{1}{\sqrt{2\pi}} \frac{\sigma\sqrt{T}}{2}
+    \end{equation}
+    And by substituting, we find that
+    \begin{equation}
+        C = P = 2K(N(\frac{\sigma\sqrt{T}}{2})-\frac{1}{2}) \approx 2K \frac{1}{\sqrt{2\pi}} \frac{\sigma\sqrt{T}}{2} = \sigma K \sqrt{\frac{T}{2\pi}}
+    \end{equation}
+    or
+    \begin{equation}
+        C = P \approx \sigma F \sqrt{\frac{T}{2\pi}}
+    \end{equation}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 6
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Recall that 
+    \begin{equation}
+        S(T) = S(0)\exp((r-q-\sigma^2/2)T + \sigma\sqrt{T}Z)
+    \end{equation}
+    and note that
+    \begin{equation}
+        S(T) \ge K \Leftrightarrow Z \ge -d_2
+    \end{equation}
+    Then,
+    \begin{equation}
+        \begin{split}
+            V(0) &= e^{-rT}\frac{1}{\sqrt{2\pi}} \int_{-d_2}^{\infty} \sqrt{\ln(\frac{S(0)\exp((r-q-\sigma^2/2)T + \sigma\sqrt{T}x)}{K})} e^{-x^2/2} dx \\
+            &= e^{-rT}\frac{1}{\sqrt{2\pi}} \int_{-d_2}^{\infty} \sqrt{\ln(\frac{S(0)}{K}) + (r-q-\sigma^2/2)T + \sigma\sqrt{T}x}  e^{-x^2/2} dx \\
+            &= c_1 \int_{-d_2}^{\infty} \sqrt{c_2 + c_3x} e^{-x^2/2} dx 
+        \end{split}
+    \end{equation}
+    where
+    \begin{equation}
+        \begin{split}
+            c_1 = e^{-rT}\frac{1}{\sqrt{2\pi}}, c_2 = \ln(\frac{S(0)}{K}) + (r-q-\sigma^2/2)T, c_3 = \sigma\sqrt{T}
+        \end{split}
+    \end{equation}
+    Since the integration upper bound is $\infty$ which cannot be implemented using numerical methods, we use the substitution $y = e^{-x}$, therefore $x = -\ln y$ and $dx = -dy/y$, we have
+    \begin{equation}
+        \begin{split}
+            V(0) &= c_1 \int_{e^{d_2}}^{1} \sqrt{c_2 - c_3\ln y} e^{-\ln^2(y)/2} (-\frac{dy}{y}) \\
+            &= c_1 \int_{1}^{e^{d_2}} \frac{e^{-\ln^2(y)/2}\sqrt{c_2 - c_3\ln y}}{y} dy
+        \end{split}
+    \end{equation}
+    Using simpson's method to do the numerical integration, we derive the answer as
+    \begin{equation}
+        V(0) = 0.284033
+    \end{equation}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 7
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        Similar to the last problem, the only change is payoff becomes $\sqrt{K-S(T)}$, then
+        \begin{equation}
+            \begin{split}
+                V(0) &= e^{-rT}\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-d_2} \sqrt{K - S(0)\exp((r-q-\sigma^2/2)T + \sigma\sqrt{T}x))} e^{-x^2/2} dx
+            \end{split}
+        \end{equation}
+        Use the substitution 
+        \begin{equation}
+            x \in (-\infty, -d_2] \to y \in (0,e^{-d_2}] \text{ given by } y=e^{x}
+        \end{equation}
+        Therefore the integration becomes
+        \begin{equation}
+            V(0) = e^{-rT}\frac{1}{\sqrt{2\pi}} \int_{0}^{e^{-d_2}} \sqrt{K - S(0)\exp((r-q-\sigma^2/2)T + \sigma\sqrt{T}\ln y))} e^{-(\ln y)^2/2} \frac{dy}{y}
+        \end{equation}
+        Using simpson's method to do the numerical integration, we derive
+        \begin{equation}
+            V(0) = 1.119282
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        Now the integration becomes the other side, that is
+        \begin{equation}
+            \begin{split}
+                V(0) &= e^{-rT}\frac{1}{\sqrt{2\pi}} \int_{-d_2}^{\infty} \sqrt{S(0)\exp((r-q-\sigma^2/2)T + \sigma\sqrt{T}x)) - K} e^{-x^2/2} dx
+            \end{split}
+        \end{equation}
+        Use the substitution
+        \begin{equation}
+            x \in [-d_2, \infty) \to y \in (0,e^{d_2}] \text{ given by } y=e^{-x}
+        \end{equation}
+        Therefore the integration becomes
+        \begin{equation}
+            V(0) = e^{-rT}\frac{1}{\sqrt{2\pi}} \int_{0}^{e^{d_2}} \sqrt{S(0)\exp((r-q-\sigma^2/2)T - \sigma\sqrt{T}\ln y)) - K} e^{-(\ln y)^2/2} \frac{dy}{y}
+        \end{equation}
+        Using simpson's method to do the numerical integration, we derive
+        \begin{equation}
+            V(0) = 1.109562
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 8
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Given $DV01 = 0.025$, we can compute the dollar duration as
+    \begin{equation}
+        D_\$ = DV01 / 0.01\% = 250
+    \end{equation}
+    million dollars.
+    \begin{homeworkSection}{(i)}
+        If the yield curve moves up by $\Delta y = 30bps = 0.003$,
+        \begin{equation}
+             \Delta B = -D_\$ \Delta y + 0.5 C_\$ (\Delta y)^2 = -748875.0
+        \end{equation} 
+        dollars. \\
+        If the yield curve moves down by $\Delta y = -30bps = -0.003$,
+        \begin{equation}
+             \Delta B = -D_\$ \Delta y + 0.5 C_\$ (\Delta y)^2 = 751125.0
+        \end{equation} 
+        dollars.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        Suppose we long $x_1$ million dollars of the bond with duration 3 and convexity 9, and long $x_2$ million dollars of the bond with duration 4 and convexity 11, to immunize the portfolio, then
+        \begin{equation}
+            \begin{split}
+                D_\$' &= 250 + 3x_1 + 4x_2 = 0 \\
+                C_\$' &= 250 + 9x_1 + 11x_2 = 0 
+            \end{split}
+        \end{equation}
+        which solved as $x_1 = 583.33333333, x_2 = -500$, that is 
+        \begin{itemize}
+            \item Long \$583.33333333 million bonds with duration 3 and convexity 9
+            \item Short \$500 million bonds with duration 4 and convexity 11
+        \end{itemize}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(iii)}
+        Since the dollar duration and the dollar convexity of the immunized portfolio are both 0, then there is no change in the value of the immunized porfolio whenever the yield curve moves up by 30bps or down by 30 bps, that is
+        \begin{equation}
+            \Delta B \approx 0
+        \end{equation}
+        If we have to fix the amount of bonds as an interger, then the portfolio is
+        \begin{itemize}
+            \item Long \$583,333,333 bonds with duration 3 and convexity 9
+            \item Short \$500,000,000 bonds with duration 4 and convexity 11
+        \end{itemize}
+        We can calculate
+        \begin{equation}
+            D_\$ = -1, C_\$ = -3
+        \end{equation}
+        which implies again
+        \begin{equation}
+            \Delta B \approx 0
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(iv)}
+        To construct a portfolio with zero dollar duration,
+        \begin{equation}
+            D_\$ = 250 + 3x = 0
+        \end{equation}
+        which solved as $x = -83.333333333$, that is short \$83.333333333 million bonds with duration 3 and convexity 9, then the dollar convexity becomes
+        \begin{equation}
+            C_\$ = 250 + 9x = -500
+        \end{equation}
+        million dollars. Whenever the yield curve moves up or down by 30 bps,
+        \begin{equation}
+            \Delta B = 0.5 C_\$ (\Delta y)^2 = -2250.0
+        \end{equation}
+        dollars. \\
+        But if we have to fix the amount of bonds as an integer, then it is to short 83,333,333 million bonds with duration 3 and convexity 9, then
+        \begin{equation}
+            D_\$ = 1, C_\$ = -499999997
+        \end{equation}
+        When the yield moves up by 30bps,
+        \begin{equation}
+            \Delta B_1 = -2250.0029865
+        \end{equation}
+        When the yield moves down by 30bps,
+        \begin{equation}
+            \Delta B_2 = -2249.996865
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 9
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        Given $y = 0.09, C = 0.08$ for the two year quarterly coupon bond, we are able to derive its price $B$, duration $D$ and convexity $C$ as
+        \begin{equation}
+            \begin{split}
+                B &= \sum_{i=1}^{8} 100C \exp(-0.25iy) + 100\exp(-2y) = 98.005556958587 \\
+                D &= \sum_{i=1}^{8} 100C(0.25i) \exp(-0.25iy) + 200\exp(-2y) = 1.866374375155 \\
+                C &= \sum_{i=1}^{8} 100C(0.25i)^2 \exp(-0.25iy) + 400\exp(-2y) = 3.634758730097 \\
+            \end{split}
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+    Following is the report of the results -
+\begin{table}[h]
+\centering
+\begin{tabular}{l|lll}
+$\Delta y$ & $B_{new,D}$ & $V_{new, D, C}$ & $B(y+\Delta y)$ \\ \hline
+0.0010 & 97.822641898457 & 97.822820011734 & 97.822819894623 \\
+0.0050 & 97.090981657936 & 97.095434489858 & 97.095419880038 \\
+0.01 & 96.176406357285 & 96.194217684972 & 96.194101095299 \\
+0.02 & 94.347255755982 & 94.418501066733 & 94.417572944071 \\
+0.04 & 90.688954553377 & 90.973935796379 & 90.966583462892
+\end{tabular}
+\end{table}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(iii)}
+        Following are the relative approximation errors generated by program, where the first column indicates $\Delta y$, the second column indicates the first relative approximation errors, the third column incidates the second relative approximation errors
+        \begin{lstlisting}
+delta_y: relativeError_d relativeError_c
+0.001: 0.000001819577 0.000000001197
+0.005: 0.000045709902 0.000000150469
+0.01: 0.000183948265 0.000001212025
+0.02: 0.000744746829 0.000009829978
+0.04: 0.003051987872 0.000080824553
+        \end{lstlisting}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 10
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    We know that $r(0,0) = 0.05$. The six month zero rate can be computed from the price of the 6-months zero coupon bond as
+    \begin{equation}
+        r(0,0.5) = 2\ln(100/97.5) = 0.050635616
+    \end{equation}
+    We can solve for the zero rate $r(0,1)$ from the formula given the price of the one year bond,
+    \begin{equation}
+        100 = 2.5\exp(-0.5r(0,0.5)) + 102.5\exp(-r(0,1))
+    \end{equation}
+    and obtain that
+    \begin{equation}
+        r(0,1) = 0.049369600
+    \end{equation}
+    Similarly for the third bond
+    \begin{equation}
+        102 = \sum_{i=1}^{6} 2.5\exp(-0.5ir(0,0.5i)) + 100\exp(-3r(0,3))
+    \end{equation}
+    Let $x = r(0,3)$, we assume that $r(0,t)$ is linear on the interval $[1,3]$, we find that
+    \begin{equation}
+        \begin{split}
+            r(0,1.5) &= 0.75r(0,1) + 0.25x \\
+            r(0,2) &= 0.5r(0,1) + 0.5x \\
+            r(0,2.5) &= 0.25r(0,1) + 0.75x
+        \end{split}
+    \end{equation}
+    Substitute them into the expression of the third bond, and use the newton's method, we derive
+    \begin{equation}
+        r(0,3) = 0.042117604
+    \end{equation}
+    where the iteration counts is 3 with approximate values as follows.
+    \begin{lstlisting}
+0 0.050000000
+1 0.042024991
+2 0.042117591
+3 0.042117604
+    \end{lstlisting} 
+    Then we are able to derive 
+    \begin{equation}
+        \begin{split}
+            r(0,1.5) &= 0.75r(0,1) + 0.25x = 0.047556601\\
+            r(0,2) &= 0.5r(0,1) + 0.5x = 0.045743602\\
+            r(0,2.5) &= 0.25r(0,1) + 0.75x = 0.043930603
+        \end{split}
+    \end{equation}
+    Similarly for the fourth bond
+    \begin{equation}
+        104 = \sum_{i=1}^{10} 3\exp(-0.5ir(0,0.5i)) + 100\exp(-5r(0,5))
+    \end{equation}
+    Let $x = r(0,5)$, we assume that $r(0,t)$ is linear on the interval $[3,5]$, we find that
+    \begin{equation}
+        \begin{split}
+            r(0,3.5) &= 0.75r(0,3) + 0.25x \\
+            r(0,4) &= 0.5r(0,3) + 0.5x \\
+            r(0,4.5) &= 0.25r(0,3) + 0.75x
+        \end{split}
+    \end{equation}
+    Substitute them into the expression of the third bond, and use the newton's method, we derive
+    \begin{equation}
+        r(0,5) = 0.050825593
+    \end{equation}
+    where the iteration counts is 3 with approximate values as follows.
+    \begin{lstlisting}
+0 0.050000000
+1 0.050823922
+2 0.050825593 
+3 0.050825593 
+    \end{lstlisting}
+    Then we are able to derive 
+    \begin{equation}
+        \begin{split}
+            r(0,3.5) &= 0.75r(0,3) + 0.25x = 0.044294601\\
+            r(0,4) &= 0.5r(0,3) + 0.5x = 0.046471598\\
+            r(0,4.5) &= 0.25r(0,3) + 0.75x = 0.048648596
+        \end{split}
+    \end{equation}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 11
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Recall that, in general, the forward finite difference approximation of the first derivative is a first order approximation,
+    \begin{equation}
+        f'(0) = \frac{f(h)-f(0)}{h} + O(h) \text{ as } h\to0
+    \end{equation}
+    To see why, for the function N(x), the forward finite difference approximation for $N'(x)$ around the point 0 is a second order approximation, we investigate how the approximation is derived. \\
+    The Taylor approximation of $f(x)$ around the point $0$ for $n=3$ is
+    \begin{equation}
+        f(x) = f(0) + xf'(0) +\frac{x^2}{2}f"(0) +\frac{x^3}{6} f^{(3)}(0) + O(x^4) \text{ as } x \to 0
+    \end{equation}
+    We let $x=h$. After solving for $f'(0)$ we obtain
+    \begin{equation}
+        f'(0) = \frac{f(h) - f(0)}{h} - \frac{h}{2}f"(0) - \frac{h^2}{6}f^{(3)}(0) + O(h^3)
+    \end{equation}
+    as $h\to0$. \\
+    For $f(x) = N(x)$, we find that $f"(x) = -\frac{1}{\sqrt{2\pi}} xe^{-x^2/2}$, and thus that $f"(0) = 0$. Also, $f^{(3)}(0) \neq 0$, the formula above becomes
+    \begin{equation}
+        f'(0) = \frac{f(h) - f(0)}{h} - \frac{h^2}{6}f^{(3)}(0) + O(h^3) = \frac{f(h) - f(0)}{h} + O(h^2)
+    \end{equation}
+    as $h\to0$. In other words, the forward difference approximation for $N'(x)$ around the point 0 is a second order approximation.
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 12
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Based on the Talor series expansion of $\ln(1+x)$,
+    \begin{equation}
+        \ln(1+x) = -\sum_{k=1}^{\infty} \frac{(-1)^kx^k}{k}
+    \end{equation}
+    Substituting x with $x^2$, the taylor series expansion of $\ln(1+x^2)$ around the point 0 is
+    \begin{equation}
+        \ln(1+x^2) = -\sum_{k=1}^{\infty} \frac{(-1)^kx^{2k}}{k}
+    \end{equation}
+    Substituting x with $x^2$, the taylor series expansion of $\ln(1-x^2)$ around the point 0 is
+    \begin{equation}
+        \ln(1-x^2) = -\sum_{k=1}^{\infty} \frac{x^{2k}}{k}
+    \end{equation}
+    Subtracting one formula from the other, we have the taylor series expansion of $\ln{(\frac{1+x^2}{1-x^2})}$,
+    \begin{equation}
+        \begin{split}
+            \ln{(\frac{1+x^2}{1-x^2})} &= \ln(1+x^2) - \ln(1-x^2) \\
+            &= \sum_{k=1}^{\infty} [\frac{x^{2k}}{k} - \frac{(-1)^kx^{2k}}{k}] \\
+            &= \sum_{k=1}^{\infty} [\frac{1-(-1)^k}{k}x^{2k}]
+        \end{split}
+    \end{equation}
+    which implies that, when $k$ is an even integer, $\frac{1-(-1)^k}{k} = 0$, therefore,
+    \begin{equation}
+        \ln{(\frac{1+x^2}{1-x^2})} = \sum_{k=1,3,5,...}^{\infty} [\frac{2}{k}x^{2k}] = \sum_{n=1}^{\infty} [\frac{2}{2n-1}x^{4n-2}]
+    \end{equation}
+    It's not hard to see that the radius of convergence 
+    \begin{equation}
+        R = \frac{1}{\limsup_{n\to\infty} |\frac{2}{2n-1}|^{1/n}} = 1
+    \end{equation}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 13
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Same as Q11. No need to do it twice.
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 14
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    The Taylor series of a real or complex-valued function ƒ(x) that is infinitely differentiable at a real or complex number a is the power series
+    \begin{equation}
+        f(a)+\frac{f'(a)}{1!} (x-a)+ \frac{f''(a)}{2} (x-a)^2 + O((x-a)^3)
+    \end{equation}
+    Let $a=1, f(x) = xN(x)$, we have
+    \begin{equation}
+        \begin{split}
+            f'(x) = N(x) + x\frac{1}{\sqrt{2\pi}}e^{-x^2/2}
+            f''(x) = \frac{2}{\sqrt{2\pi}}e^{-x^2/2} - x^2\frac{1}{\sqrt{2\pi}}e^{-x^2/2}
+        \end{split}
+    \end{equation}
+    Therefore given $N(1)=0.8413$,
+    \begin{equation}
+        \begin{split}
+            f(1) &= N(1) \\
+            f'(1) &= N(1) + \frac{1}{\sqrt{2\pi}}e^{-1/2} \\
+            f''(1) &= \frac{1}{\sqrt{2\pi}}e^{-1/2}
+        \end{split}
+    \end{equation}
+    The second order Taylor approximation of the function $xN(x)$ around the point $a=1$ is 
+    \begin{equation}
+        \begin{split}
+            xN(x) &\approx N(1) + (N(1) + \frac{1}{\sqrt{2\pi}}e^{-1/2})(x-1) +\frac{\frac{1}{\sqrt{2\pi}}e^{-1/2}}{2} (x-1)^2 \\
+            &= 0.8413 + 1.0833(x-1) + 0.1210(x-1)^2
+        \end{split}
+    \end{equation}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 15
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        To obtain a finite difference approximation for $f'(a)$ in terms of $f(a), f(a+2h), f(a+3h)$ we use the cubic Taylor approximation of $f(x)$ around the point x = a, i.e.,
+        \begin{equation}
+            f(x) = f(a) + (x-a)f'(a) + \frac{(x-a)^2}{2}f''(a) + \frac{(x-a)^3}{6}f^{(3)}(a) + O((x-a)^4)
+        \end{equation}
+        as $x\to a$. By letting $x = a + 2h$ and $x = a + 3h$, we obtain that
+        \begin{equation}
+            \begin{split}
+                f(a+2h) &= f(a)+2hf'(a) + 2h^2f''(a)  + \frac{4h^3}{3}f^{(3)}(a) + O(h^4) \\
+                f(a+3h) &= f(a)+3hf'(a) + \frac{9h^2}{2}f''(a) + \frac{9h^3}{2}f^{(3)}(a) + O(h^4)
+            \end{split}
+        \end{equation}
+        as $h\to0$. We multiply the second formula by 4 and subtracting the first formula multiplied by 9, to obtain
+        \begin{equation}
+            4f(a+3h)-9f(a+2h)= -5f(a)-6hf'(a) + 6h^3f^{(3)}(a) + O(h^4)
+        \end{equation}
+        By solving it for $f'(a)$, we obtain the following second order finite difference approximation of $f'(a)$:
+        \begin{equation}
+            \begin{split}
+                f'(a) &= \frac{-4f(a+3h)+9f(a+2h)-5f(a)}{6h} + h^2f^{(3)}(a) + O(h^3) \\
+                &= \frac{-4f(a+3h)+9f(a+2h)-5f(a)}{6h} + O(h^2)
+            \end{split}
+        \end{equation}
+        as $h\to0$.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        To obtain a finite difference approximation for $f''(a)$ in terms of $f(a-h), f(a), f(a+2h), f(a+4h)$ we use the cubic Taylor approximation of $f(x)$ around the point x = a, i.e.,
+        \begin{equation}
+            f(x) = f(a) + (x-a)f'(a) + \frac{(x-a)^2}{2}f''(a) + \frac{(x-a)^3}{6}f^{(3)}(a) + O((x-a)^4)
+        \end{equation}
+        as $x\to a$. By letting $x=a-h, x = a + 2h$ and $x = a + 3h$, we obtain that
+        \begin{equation}
+            \begin{split}
+                f(a-h) &= f(a)-hf'(a)+ \frac{h^2}{2}f''(a) - \frac{h^3}{6}f^{(3)}(a) + O((x-a)^4) \\
+                f(a+2h) &= f(a)+2hf'(a) + 2h^2f''(a)  + \frac{4h^3}{3}f^{(3)}(a) + O(h^4) \\
+                f(a+4h) &= f(a)+4hf'(a) + 8h^2f''(a) + \frac{32h^3}{3}f^{(3)}(a) + O(h^4)
+            \end{split}
+        \end{equation}
+        Remove the term of $f'(a)$, we have
+        \begin{equation}
+            \begin{split}
+                f(a+2h)+2f(a-h) &= 3f(a) + 3h^2f''(a)  + h^3f^{(3)}(a) + O(h^4) \\
+                f(a+4h)-2f(a+2h) &= -f(a) + 4h^2f''(a) + 8h^3f^{(3)}(a) + O(h^4)
+            \end{split}
+        \end{equation}
+        Remove the term of $f^{(3)}(a)$, we have
+        \begin{equation}
+            \begin{split}
+                8[f(a+2h)+2f(a-h)] - [f(a+4h)-2f(a+2h)] &= 25f(a) + 20h^2f''(a) + O(h^4)
+            \end{split}
+        \end{equation}
+        By solving it for $f''(a)$, we obtain the following second order finite difference approximation of $f''(a)$:
+        \begin{equation}
+            \begin{split}
+                f''(a) &= \frac{8[f(a+2h)+2f(a-h)] - [f(a+4h)-2f(a+2h)] - 25f(a)}{20h^2} + O(h^2) \\
+                &= \frac{-f(a+4h)+10f(a+2h)+16f(a-h)-25f(a)}{20h^2} + O(h^2)
+            \end{split}
+        \end{equation}
+        as $h\to0$.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(iii)}
+        We will use the following Taylor approximation of $f(x)$ around the point $x = a$:
+        \begin{equation}
+            \begin{split}
+                f(x) &= f(a) + (x-a)f'(a) + \frac{(x-a)^2}{2}f''(a) + \frac{(x-a)^3}{6}f^{(3)}(a) \\
+                &+ \frac{(x-a)^4}{24}f^{(4)}(a) + \frac{(x-a)^5}{120}f^{(5)}(a) + O((x-a)^6)
+            \end{split}
+        \end{equation}
+        as $x\to a$. For symmetry reasons, and keeping in mind the form of the central limit difference approximation for $f''(a)$, we have
+        \begin{equation}
+            \begin{split}
+                f(a+h)+f(a-h) &= 2f(a) + h^2f''(a) + \frac{h^4}{12}f^{(4)}(a) + O(h^6) \\
+                f(a+2h)+f(a-2h) &= 2f(a) + 4h^2f''(a) + \frac{4h^4}{3}f^{(4)}(a) + O(h^6)
+            \end{split}
+        \end{equation}
+        We multiply the first formula by 16 and subtract the result from the second formula,
+        \begin{equation}
+            16[f(a+h)+f(a-h)] - [f(a+2h)+f(a-2h)] = 30f(a) + 12h^2f''(a) + O(h^6)
+        \end{equation}
+        We solve for f''(a) and obtain the following fourth order finite difference approximation:
+        \begin{equation}
+            \begin{split}
+                f''(a) = \frac{16[f(a+h)+f(a-h)] - [f(a+2h)+f(a-2h)] - 30f(a)}{12h^2} + O(h^4)
+            \end{split}
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 16
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        The Delta, Gamma and Theta of the option is $-0.4497, 0.05128816, -0.0076$ respectively.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        When $dS = 10^{-1}$,
+        \begin{equation}
+            V(S+dS) = 2.9215320, V(S) = 2.9650717, V(S-dS) = 3.0117945
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            \Delta_c = -0.4513125, \Gamma_c = 0.31831
+        \end{equation}
+        When $dS = 10^{-2}$,
+        \begin{equation}
+            V(S+dS) = 2.9605987, V(S) = 2.9650717, V(S-dS) = 2.9697425
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            \Delta_c = -0.4571900, \Gamma_c = 1.9780000
+        \end{equation}   
+        When $dS = 10^{-3}$,
+        \begin{equation}
+            V(S+dS) = 2.9646234, V(S) = 2.9650717, V(S-dS) = 2.9655387
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            \Delta_c = -0.4576500, \Gamma_c = 18.7000000
+        \end{equation}      
+    \end{homeworkSection}
+    \begin{homeworkSection}{(iii)}
+        When $dT = 1$,
+        \begin{equation}
+            V(T-dT) = 2.9574734, V(T) = 2.9650717
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            \Theta_f = -0.0075983
+        \end{equation}
+        When $dT = 2$,
+        \begin{equation}
+            V(T-dT) = 2.9498515, V(T) = 2.9650717
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            \Theta_f = -0.0076101
+        \end{equation}
+        When $dT = 3$,
+        \begin{equation}
+            V(T-dT) = 2.9422053, V(T) = 2.9650717
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            \Theta_f = -0.0076221
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 17
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Given 
+    \begin{equation}
+        f(x,y) = 3x^2y + x^2 - 6x - 3y - 2
+    \end{equation}
+    to derive the local extremum points, we let
+    \begin{equation}
+        \begin{split}
+            \frac{\partial f(x,y)}{\partial x} &= 6xy + 2x - 6 = 0 \\
+            \frac{\partial f(x,y)}{\partial y} &= 3x^2 -3 = 0
+        \end{split}
+    \end{equation}
+    which solved as
+    \begin{equation}
+        x_1 = 1, y_1 = 2/3 \text{ or } x_2 = -1, y_2 = -4/3
+    \end{equation}
+    After verifications, $(1,2/3)$ and $(-1, -4/3)$ are both local extremum points.
+    Since
+    \begin{equation}
+        det(D^2f(x,y)) = -36x^2 < 0 
+    \end{equation}
+    therefore both $(1,2/3)$ and $(-1, -4/3)$ are local maximum points.
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 18
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    We reformulate the problem as a constrained optimization problem. Let $f: R^3 \to R$ and $g: R^3 \to R$ be defined as follows:
+    \begin{equation}
+        f(x) = x_1^2 + 3x_2^2 + x_3^2 - 2x_1x_2 - x_2x_3 + x_1x_3; g(x) = (x_1^2 + x_2^2 + x_3^2 - 6)
+    \end{equation}
+    where $x = (x_1, x_2, x_3)$. We want to find the maximum and minimum of $f(x)$ on $R^3$ subject to the constraint $g(x) = 0$. We first check that $rank(\nabla g(x)) = 1$ for any $x$ such that $g(x) = 0$. Note that
+    \begin{equation}
+        \nabla g(x) = (2x_1,2x_2,2x_3)
+    \end{equation}
+    It is easy to see that $rank(\nabla g(x)) = 1$, unless $x1 = x2 = x3 = 0$, in which case $g(x) \neq 0$. \\
+    The Lagrangian associated to this problem is
+    \begin{equation}
+        F(x, \lambda) = x_1^2 + 3x_2^2 + x_3^2 - 2x_1x_2 - x_2x_3 + x_1x_3 + \lambda(x_1^2 + x_2^2 + x_3^2 - 6)
+    \end{equation}
+    where $\lambda$ is the Lagrange multiplier. \\
+    We now find the critical points of $F(x, \lambda)$. Let $x_0 = (x_{10}, x_{20}, x_{30})$ and $\lambda_0$, it follows that $\nabla F(x_0, \lambda_0) = 0$ is equivalent to
+    \begin{equation}
+        \begin{split}
+            2x_1 - 2x_2 + x_3 + \lambda(2x_1) &= 0 \\
+            6x_2 - 2x_1 - x_3 + \lambda(2x_2) &= 0 \\
+            2x_3 - x_2 + x_1 + \lambda(2x_3) &= 0 \\
+            x_1^2 + x_2^2 + x_3^2 - 6 &= 0
+        \end{split}
+    \end{equation}
+    For the first three formulas, we can rewrite them as
+    \begin{equation}
+        \left( \begin{array}{ccc}
+        2\lambda +2 & -2 & 1 \\
+        -2 & 2\lambda + 6 & -3 \\
+        1 & -1 & 2\lambda+2 \end{array} \right)
+        \left( \begin{array}{c}
+        x_1 \\
+        x_2 \\
+        x_3 \end{array} \right) = 0
+    \end{equation}
+    such that $(x_1, x_2, x_3) \neq (0, 0 ,0)$, which implies we need to solve
+    \begin{equation}
+        \left| \begin{array}{ccc}
+        2\lambda +2 & -2 & 1 \\
+        -2 & 2\lambda + 6 & -3 \\
+        1 & -1 & 2\lambda+2 \end{array} \right| = 0
+    \end{equation}
+    which solved as
+    \begin{equation}
+        \lambda_1 = -1, \lambda_2 = \frac{-4+\sqrt{10}}{2}, \lambda_3 = \frac{-4-\sqrt{10}}{2}
+    \end{equation}
+    When $\lambda_1 = -1$, we can solve $(x_1, x_2, x_3) = (1, 1 ,2)$ or $(-1, -1, -2)$. But after verification, neither of them is constrained extremum point. \\
+    When $\lambda_1 = \frac{-4+\sqrt{10}}{2}$, we can solve
+    \begin{equation}
+        (x_1, x_2, x_3) = (\frac{5+\sqrt{10}}{2}, \frac{25-7\sqrt{10}}{10}, \frac{5+\sqrt{10}}{5})
+    \end{equation}
+    After verifying $D^2F(x)$, this is a contrained minimum point. \\
+    When $\lambda_1 = \frac{-4-\sqrt{10}}{2}$, we can solve
+    \begin{equation}
+        (x_1, x_2, x_3) = (\frac{5-\sqrt{10}}{2}, \frac{25+7\sqrt{10}}{10}, \frac{5-\sqrt{10}}{5})
+    \end{equation}
+    After verifying $D^2F(x)$, this is a contrained maximum point.\\
+    In conclusion, the maximum of the function is
+    \begin{equation}
+        f(\frac{5-\sqrt{10}}{2}, \frac{25+7\sqrt{10}}{10}, \frac{5-\sqrt{10}}{5}) = 21.48683298
+    \end{equation} 
+    The minimum of the function is
+    \begin{equation}
+        f(\frac{5+\sqrt{10}}{2}, \frac{25-7\sqrt{10}}{10}, \frac{5+\sqrt{10}}{5}) = 2.513167019  
+    \end{equation}
+\end{homeworkProblem}
+
+
+
+\end{document}

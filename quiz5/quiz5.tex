@@ -1,0 +1,276 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=R,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Quiz 4} % Assignment title
+\newcommand{\hmwkDueDate}{July 22,\ 2014} % Due date
+\newcommand{\hmwkClass}{Advanced Calculus with FE Application} % Course/class
+\newcommand{\hmwkClassTime}{} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Dan Stefanica} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Weiyi Chen} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        Binomial series (includes the square root for $\alpha = 0.5$)
+        \begin{equation}
+            (1+x)^\alpha = \sum_{n=0}^\infty {\alpha \choose n} x^n\quad\text{ for all }|x| < 1 \text{ and all complex } \alpha\!
+        \end{equation}
+        with generalized binomial coefficients
+        \begin{equation}
+            {\alpha\choose n} = \prod_{k=1}^n \frac{\alpha-k+1}k = \frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}.
+        \end{equation}
+        For $\alpha = 0.5$,
+        \begin{equation}
+            \sqrt{1+x} = \sum_{n=0}^\infty {0.5 \choose n} x^n\quad\text{ for all }|x| < 1
+        \end{equation}
+        Or
+        \begin{equation}
+            \sqrt{1+x} = \textstyle 1 + \frac{1}{2}x - \frac{1}{8}x^2 + \frac{1}{16}x^3 - \frac{5}{128}x^4 + \frac{7}{256}x^5 + O(x^6)
+        \end{equation}
+        which converges when $|x| < 1$. \\
+        Substituting $x$ with $-x^4$, the taylor series expansion of $f_1(x)$ around the point 0 is
+        \begin{equation}
+            \begin{split}
+                f_1(x) &= \sum_{n=0}^{\infty} \frac{f_1^{(n)}(0)}{n!} x^{n} \\
+                &= 1-\frac{x^4}{2}-\frac{x^8}{8}-\frac{x^{12}}{16}-\frac{5x^{16}}{128}-\frac{7x^{20}}{256}-\frac{21x^{24}}{1024}+O(x^{25}) \\
+                &= \sum_{n = 0}^{\infty} (-1)^n {0.5 \choose n} x^{4n} \\
+                &= \sum_{n = 0}^{\infty} \frac{(2n)!}{(1-2n)(n!)^2(4^n)} x^{4n}
+            \end{split}
+        \end{equation}
+        which converges when $|-x^4| < 1$, or $|x| < 1$. We can also use the formula to calculate, where using stirling's formula
+        \begin{equation}
+            a_n = (-1)^n {0.5 \choose n} \approx -\frac{(-1.5+n)!}{2\sqrt{\pi}n!}
+        \end{equation}
+        The radius of convergence is 
+        \begin{equation}
+            \begin{split}
+                R &= \frac{1}{\lim\sup_{n\to\infty}|a_n|^{1/n}} \\
+                &= \frac{1}{\lim\sup_{n\to\infty}|-\frac{(-1.5+n)!}{2\sqrt{\pi}n!}|^{1/n}} \\
+                &= 1                
+            \end{split}
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        Exponential function
+        \begin{equation}
+            e^{-x} = \sum^{\infty}_{n=0} \frac{(-x)^n}{n!} = 1 - x + \frac{x^2}{2!} - \frac{x^3}{3!} + O(x^4) \quad\text{ for all } x\!
+        \end{equation}
+        which converges everywhere. \\
+        Substitute $x$ with $x^2$, the taylor series expansion of $e^{-x^2}$ around the point 0 is
+        \begin{equation}
+            e^{-x^2} = \sum^{\infty}_{n=0} \frac{(-x^2)^n}{n!}
+        \end{equation}
+        which still converges everywhere. \\
+        Therefore the taylor series expansion of $f_2(x)$ around the point 0 is
+        \begin{equation}
+            \begin{split}
+                f_2(x) &= e^2 e^{-x^2} \\
+                &= \sum^{\infty}_{n=0} \frac{e^2(-x^2)^n}{n!} \\
+                &= \sum^{\infty}_{n=0} \frac{e^2(-1)^n}{n!} x^{2n}
+            \end{split}
+        \end{equation}
+        which converges everywhere, that is, with the radius of convergence as $R = \infty$.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        The dollar duration of the portfolio is
+        \begin{equation}
+            D_{\$} = \sum_i D_iB_i = 20 \times 3 + 50 \times 4 = 260
+        \end{equation}
+        The dollar convexity of the portfolio is 
+        \begin{equation}
+            C_{\$} = \sum_i C_iB_i = 20 \times 18 + 50 \times 20 = 1360
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        The change of portfolio value is
+        \begin{equation}
+            \begin{split}
+                \Delta B &= -D_{\$}\Delta y + \frac{1}{2} C_{\$}(\Delta y)^2  \\
+                &= -260\times0.25\% + 0.5\times1360\times(0.25\%)^2 \\
+                &= -0.64575
+            \end{split}
+        \end{equation}
+        The approximate value of the portfolio is
+        \begin{equation}
+            B_{new} = B_{old} + \Delta B = 69.35425
+        \end{equation}
+        million dollars.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(iii)}
+        Suppose we long $x_1$ units of the bond with duration 2 and convexity 7, and long $x_2$ units of the bond with duration 4 and convexity 11, to  immunize the portfolio, then
+        \begin{equation}
+            \begin{split}
+                D_{\$} &= \sum_i D_iB_i = 260 + 2x_1 + 4x_2 = 0 \\
+                C_{\$} &= \sum_i D_iC_i = 1360 + 7x_1 + 11x_2 = 0
+            \end{split}
+        \end{equation}
+        which solved as $x_1=-430, x_2=150$, that is
+        \begin{itemize}
+            \item Short $430$ units of the bond with duration 2 and convexity 7
+            \item Long $150$ units of the bond with duration 4 and convexity 11
+        \end{itemize}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+\end{document}

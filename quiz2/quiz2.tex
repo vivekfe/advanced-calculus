@@ -1,0 +1,403 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Quiz\ 2} % Assignment title
+\newcommand{\hmwkDueDate}{July 16,\ 2014} % Due date
+\newcommand{\hmwkClass}{Advanced Calculus with FE Application} % Course/class
+\newcommand{\hmwkClassTime}{} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Advisor: Dan Stefanica} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Weiyi Chen} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    The approximate values of the integral
+    \begin{equation}
+         \frac{1}{2} + \frac{1}{\sqrt{2\pi}}\int_0^t e^{-\frac{x^2}{2}}dx
+    \end{equation} 
+    using the Simpson's rules can be found in the table below:
+    \begin{table}[h] \centering
+        \begin{tabular}{l|lll}
+No. Intervals & N(0.1)         & N(0.5)         & N(1.0)         \\ \hline
+4             & 0.539827837293 & 0.691462502398 & 0.841345406139 \\
+8             & 0.539827837278 & 0.69146246384  & 0.84134478715  \\
+16            & 0.539827837277 & 0.691462461434 & 0.841344748633 \\
+32            &                & 0.691462461284 & 0.841344746229 \\
+64            &                & 0.691462461275 & 0.841344746079 \\
+128           &                & 0.691462461274 & 0.841344746069 \\
+256           &                &                & 0.841344746069
+        \end{tabular}
+    \end{table} \\
+    The approximate values of the integral are
+    \begin{equation}
+        N(0.1)=0.539827837277, N(0.5)=0.691462461274, N(1.0)=0.841344746069
+    \end{equation}
+    and are obtained for a 16 intervals partition, 128 intervals partition and 256 intervals partition, respectively, using Simpson's rule. Following is the python code as of the routine to compute above values
+    \begin{lstlisting}
+from math import *
+
+def simpson(f, d_a, d_b, i_n):
+    i_n *= 2
+    d_h = (d_b - d_a) / i_n
+    d_k, d_x = 0.0, d_a + d_h
+    for i in range(1, i_n/2 + 1):
+        d_k += 4*f(d_x)
+        d_x += 2*d_h
+    d_x = d_a + 2*d_h
+    for i in range(1, i_n/2):
+        d_k += 2*f(d_x)
+        d_x += 2*d_h
+    return (d_h/3)*(f(d_a)+f(d_b)+d_k)
+
+def function(x): return exp(-x*x/2)
+
+d_previous, d_current = 0.0, 0.0
+for j in [0.1, 0.5, 1.0]:
+    print "Compute N(", j, "):"
+    for i in range(2,200):
+        i_n = 2**i
+        d_current = 0.5 + simpson(function, 0.0, j, i_n) / sqrt(2*pi)
+        if abs(d_current-d_previous) < 10**(-12):
+          print i_n, d_current
+          break
+        else:
+          print i_n, d_current
+          d_previous = d_current
+    \end{lstlisting}
+\end{homeworkProblem}
+\newpage
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{Annual coupon bond}
+        If the bond is an annual coupon bond, the value of a 19 months bond with coupon rate 4\% and face value \$100 will be 
+        \begin{equation}
+            \begin{split}
+                B &= \sum_{t=7/12} 100Ce^{-tr(0,t)} + (100C+100)e^{-Tr(0,T)} \\
+                &= 4e^{-7/12r(0,7/12)} + 104e^{-19/12r(0, 19/12)}
+            \end{split}
+        \end{equation}
+        The data below refers to the pseudocode from Table 2.5 for computing the bond price given the zero rate curve \\
+        Input: $n=2$
+        \begin{equation}
+        \begin{split}
+            t\_cash\_flow &= [7./12, 19./12] \\
+            v\_cash\_flow &= [4., 104.]
+        \end{split}
+        \end{equation}
+        The price of the bond is $B = 103.440082$.
+    \end{homeworkSection}
+    \begin{homeworkSection}{Semiannual coupon bond}
+        Input: $n=4$
+        \begin{equation}
+        \begin{split}
+            t\_cash\_flow &= [1./12, 7./12, 13./12, 19./12] \\
+            v\_cash\_flow &= [2., 2., 2., 102.]   
+        \end{split}      
+        \end{equation}
+        The price of the bond is $B = 103.495539$.
+    \end{homeworkSection}
+    \begin{homeworkSection}{Quarterly coupon bond}
+        Input: $n=7$
+        \begin{equation}
+        \begin{split}
+            t\_cash\_flow &= [1./12, 4./12,..., 16./12, 19./12] \\
+            v\_cash\_flow &= [1., 1., ..., 101.]
+        \end{split}        
+        \end{equation}
+        The price of the bond is $B = 102.518910$.
+    \end{homeworkSection}
+    \\Attached is the python code to compute quarterly coupon bond as an example -
+    \begin{lstlisting}
+from math import *
+
+def r_2(time):
+    return 0.02+time/(200.-time)
+
+ls_cashflow = [1.,1.,1.,1.,1.,1.,101.]
+ls_time = [1./12,4./12,7./12,10./12,13./12,16./12,19./12]
+f_ret = 0.
+for i in range(len(ls_cashflow)):
+    f_ret += ls_cashflow[i]*exp(-ls_time[i]*r_2(ls_time[i]))
+print f_ret
+    \end{lstlisting}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 3
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{homeworkProblem}
+    The price, duration, and convexity of the bond can be obtained from the yield y of the bond as follows:
+    \begin{equation}
+        \begin{split}
+            B &= \sum_{t=[1/12, 7/12, 13/12]} 2\exp(-yt) + 102\exp(-yT) \\
+            D &= \frac{1}{B} (\sum_{t=[1/12, 7/12, 13/12]} 2t\exp(-yt) + 102T\exp(-yT)) \\
+            C &= \frac{1}{B} (\sum_{t=[1/12, 7/12, 13/12]} 2t^2\exp(-yt) + 102T^2\exp(-yT)
+        \end{split}
+    \end{equation}
+    where $T = 19/12$. \\
+    The data below refers to the pseudocode from Table 2.7 for computing the price, duration and convexity of a bond given the yield of the bond. \\
+    Input: $n = 4, y=2.5\%$
+    \begin{equation}
+        \begin{split}
+            t\_cash\_flow &= [1./12, 7./12, 13./12, 19./12] \\
+            v\_cash\_flow &= [2., 2., 2., 102.]
+        \end{split}
+    \end{equation}
+    Output: bond price $B = 103.954808$, bond duration $D = 1.526212$, and bond convexity $C = 2.392899$. \\
+    Attached is the python code to compute bond price, duration and convexity -
+    \begin{lstlisting}
+import numpy as np
+from math import *
+
+def bond_price(ls_cashflow, ls_time, f_yield):
+    f_ret = 0.
+    for i in range(len(ls_cashflow)):
+        f_ret += ls_cashflow[i]*exp(-ls_time[i]*f_yield)
+    return f_ret
+
+def bond_duration(ls_cashflow, ls_time, f_yield):
+    f_ret = 0.
+    for i in range(len(ls_cashflow)):
+        f_ret += ls_cashflow[i]*ls_time[i]*exp(-ls_time[i]*f_yield)
+    return f_ret/bond_price(ls_cashflow, ls_time, f_yield)
+
+def bond_convexity(ls_cashflow, ls_time, f_yield):
+    f_ret = 0.
+    for i in range(len(ls_cashflow)):
+        f_ret += ls_cashflow[i]*ls_time[i]*ls_time[i]*exp(-ls_time[i]*f_yield)
+    return f_ret/bond_price(ls_cashflow, ls_time, f_yield)
+
+ls_cashflow = [2.,2.,2.,102]
+ls_time = [1./12, 7./12, 13./12, 19./12]
+f_yield = 0.025
+print bond_price(ls_cashflow, ls_time, f_yield)
+print bond_duration(ls_cashflow, ls_time, f_yield)
+print bond_convexity(ls_cashflow, ls_time, f_yield)
+    \end{lstlisting}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 4
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        The value of the fixed leg of a 30 months semiannual swap with a \$10 million notional with fixed rate 3\% is
+        \begin{equation}
+            \begin{split}
+                v_{fixed} &= (\sum_{t=[.5,1,1.5,2]} 10\times0.03/2[1+0.5r(0,t)]^{-t/0.5}) + 10\times(1+0.03/2)(1+0.5r(0,T))^{-T/0.5} \\
+                &= (\sum_{t=[.5,1,1.5,2]} 0.15[1+0.5r(0,t)]^{-t/0.5}) + 10.15(1+0.5r(0,T))^{-T/0.5}
+            \end{split}
+        \end{equation}
+        where $T = 2.5$. \\
+        The data below refers to the pseudocode from Table 2.5 for computing the bond price given the zero rate curve \\
+        Input: $n=5$
+        \begin{equation}
+            \begin{split}
+                t\_cash\_flow &= [.5,1,1.5,2,2.5] \\
+                v\_cash\_flow &= [0.15,0.15,0.15,0.15,10.15]
+            \end{split}
+        \end{equation}
+        Output: the value is
+        \begin{equation}
+            v_{fixed} = 9.92141527551
+        \end{equation}
+        Therefore the value of the swap is 
+        \begin{equation}
+            v_{swap} = v_{float} - v_{fixed} = 10. - 9.92141527551 = 0.0785847244
+        \end{equation}
+        million dollars, that is $78,584.72$ dollars.
+    \end{homeworkSection}
+\newpage
+    \begin{homeworkSection}{(ii)}
+        The next floating payment happens at 1 month later as of \$125,000. Then the value of the floating leg at $t = 1/12$ is the amount of notional adding the next floating payment, that is
+        \begin{equation}
+            v_{float}(t = \frac{1}{12}) = 0.125 + 10 = 10.125
+        \end{equation}
+        Then the current value of the floating leg is
+        \begin{equation}
+            v_{float}(t=0) = v_{swap}(t) \times (1+0.5r(0,t))^{-t/0.5} = \$10.1038276352
+        \end{equation}
+        where $t = 1/12$. \\
+        Now we calculate the fixed leg as the way in (i), that is \\
+        Input: $n=5$
+        \begin{equation}
+            \begin{split}
+                t\_cash\_flow &= [1./12,7./12,13./12,19./12,25./12] \\
+                v\_cash\_flow &= [0.15,0.15,0.15,0.15,10.15]
+            \end{split}
+        \end{equation}
+        Output: the value of the fixed leg is
+        \begin{equation}
+            v_{fixed} = 10.0863823028
+        \end{equation}
+        Therefore the value of the swap is 
+        \begin{equation}
+            v_{swap} = v_{float} - v_{fixed} = 0.0174453324728
+        \end{equation}
+        million dollars, that is $17,445.33$ dollars.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+
+\end{document}
